@@ -45,5 +45,6 @@ context 'Check holidays_detailed.yml by Google Calendar' do
       expect(holidays.key?(date)).to eq true
       expect(holidays[date]).to eq detail['name']
     end
+    expect(holidays.length).to eq @holidays_detailed.length
   end
 end

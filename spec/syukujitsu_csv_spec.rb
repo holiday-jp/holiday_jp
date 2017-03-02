@@ -3,7 +3,6 @@ require 'spec_helper'
 require 'yaml'
 require 'csv'
 require 'open-uri'
-require 'json'
 require 'date'
 
 context 'Check holidays.yml by syukujitsu.csv' do

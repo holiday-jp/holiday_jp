@@ -6,6 +6,10 @@ Japanese holiday datasets
 
 [Project Woothee](https://woothee.github.io/)
 
+## Test by syukujitsu.csv
+
+http://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html
+
 ## Test by Google Calendar API
 
 https://calendar.google.com/calendar/embed?src=ja.japanese%23holiday@group.v.calendar.google.com

@@ -5366,7 +5366,7 @@
   week_en: Monday
   name: 振替休日
   name_en: "Holiday in lieu"
-  
+
 2019-09-16:
   date: 2019-09-16
   week: 月
@@ -5968,7 +5968,7 @@
   week_en: Monday
   name: 振替休日
   name_en: "Holiday in lieu"
-  
+
 2024-09-16:
   date: 2024-09-16
   week: 月
@@ -6726,12 +6726,12 @@
   name_en: "Mountain Day"
 
 2030-08-12:
-  date: 2020-08-12
+  date: 2030-08-12
   week: 月
   week_en: Monday
   name: 振替休日
   name_en: "Holiday in lieu"
-  
+
 2030-09-16:
   date: 2030-09-16
   week: 月
@@ -8096,7 +8096,7 @@
   week_en: Monday
   name: 振替休日
   name_en: "Holiday in lieu"
-  
+
 2041-09-16:
   date: 2041-09-16
   week: 月
@@ -8859,7 +8859,7 @@
   week_en: Monday
   name: 振替休日
   name_en: "Holiday in lieu"
-  
+
 2047-09-16:
   date: 2047-09-16
   week: 月

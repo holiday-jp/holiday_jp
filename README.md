@@ -10,7 +10,7 @@ Japanese holiday datasets
 
 syukujitsu.csv
 
-出典：内閣府ホームページ （http://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html）
+出典：内閣府ホームページ ( http://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html )
 
 ## Test by Google Calendar API
 

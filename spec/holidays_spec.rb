@@ -26,8 +26,9 @@ context 'Check holidays.yml by Google Calendar' do
   end
 
   it 'holidays.yml shoud have date of Google calendar' do
-    @gholidays.each do |date, _name|
+    @gholidays.each do |date, name|
       expect(@holidays.key?(date)).to eq true
+      expect(@holidays[date]).to eq name
     end
   end
 

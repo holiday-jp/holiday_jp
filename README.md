@@ -1,4 +1,4 @@
-# holiday_jp [![Build Status](https://travis-ci.org/holiday-jp/holiday_jp.svg?branch=master)](https://travis-ci.org/holiday-jp/holiday_jp)
+# holiday_jp [![Build Status](https://travis-ci.org/holiday-jp/holiday_jp.svg?branch=master)](https://travis-ci.org/holiday-jp/holiday_jp) [![GitHub release](https://img.shields.io/github/release/holiday-jp/holiday_jp.svg)](https://github.com/holiday-jp/holiday_jp/releases)
 
 Japanese holiday datasets
 

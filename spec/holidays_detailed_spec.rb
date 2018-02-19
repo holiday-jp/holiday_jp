@@ -42,6 +42,10 @@ context 'Check holidays_detailed.yml by Google Calendar' do
 
   it 'holidays_detailed.yml should have date of holiday.yml' do
     holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__))
+    holidays.each do |date, name|
+      expect(@holidays_detailed.key?(date)).to eq true
+      expect(@holidays_detailed[date]['name']).to eq name
+    end
     @holidays_detailed.each do |date, detail|
       expect(holidays.key?(date)).to eq true
       expect(holidays[date]).to eq detail['name']

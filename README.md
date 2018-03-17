@@ -13,7 +13,7 @@ Japanese holiday datasets
 
 | Implemantation | Release version using holiday_jp v0.x | Release version using holiday_jp v1.x |
 | --- | --- | --- |
-| [Ruby](https://github.com/holiday-jp/holiday_jp-ruby) | - | - |
+| [Ruby](https://github.com/holiday-jp/holiday_jp-ruby) | v0.7.x | - |
 | [JavaScript](https://github.com/holiday-jp/holiday_jp-js) | v1.x | v2.x |
 | [PHP](https://github.com/holiday-jp/holiday_jp-php) | v1.x | v2.x |
 | [Java](https://github.com/holiday-jp/holiday_jp-java) | - | v0.1.x |

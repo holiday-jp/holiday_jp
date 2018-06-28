@@ -39,3 +39,24 @@ context 'Check holidays.yml by Google Calendar' do
     expect(@holidays.key?(Date::parse('2047-08-12'))).to eq true
   end
 end
+
+context 'Tokyo Olympic' do
+  before do
+    @holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__))
+  end
+
+  it 'If tokyo olympic year, 海の日 should be moved' do
+    expect(@holidays.key?(Date::parse('2020-07-20'))).to eq false
+    expect(@holidays.key?(Date::parse('2020-07-23'))).to eq true
+  end
+
+  it 'If tokyo olympic year, 山の日 should be moved' do
+    expect(@holidays.key?(Date::parse('2020-08-11'))).to eq false
+    expect(@holidays.key?(Date::parse('2020-08-10'))).to eq true
+  end
+
+  it 'If tokyo olympic year, 体育の日 should be moved' do
+    expect(@holidays.key?(Date::parse('2020-10-12'))).to eq false
+    expect(@holidays.key?(Date::parse('2020-07-24'))).to eq true
+  end
+end

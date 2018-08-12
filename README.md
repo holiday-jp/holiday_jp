@@ -16,7 +16,7 @@ Japanese holiday datasets
 | [Ruby](https://github.com/holiday-jp/holiday_jp-ruby) | v0.7.x | - |
 | [JavaScript](https://github.com/holiday-jp/holiday_jp-js) | v1.x | v2.x |
 | [PHP](https://github.com/holiday-jp/holiday_jp-php) | v1.x | v2.x |
-| [Java](https://github.com/holiday-jp/holiday_jp-java) | - | v0.1.x |
+| [Java](https://github.com/holiday-jp/holiday_jp-java) | - | v2.x |
 | [Swift](https://github.com/holiday-jp/holiday_jp-swift) | v0.1.x | v0.2.x |
 | [Go](https://github.com/holiday-jp/holiday_jp-go) | - | master |
 | [Elixir](https://github.com/holiday-jp/holiday_jp-elixir) | v0.2.2 | >= v0.2.3 |

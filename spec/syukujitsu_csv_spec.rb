@@ -17,7 +17,7 @@ context 'Check holidays.yml by syukujitsu.csv' do
     @cholidays.each do |row|
       d = Date::parse(row[0])
       expect(@holidays.key?(d)).to eq true
-      expect(@holidays[d]).to eq row[1].encode('UTF-8', 'Shift_JIS')
+      expect(@holidays[d]).to eq(row[1].encode('UTF-8', 'Shift_JIS')).or match(/振替休日/)
     end
   end
 

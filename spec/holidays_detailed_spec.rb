@@ -21,6 +21,7 @@ context 'Check holidays_detailed.yml by Google Calendar' do
 
   it 'Google calendar result should have date of holidays_detailed.yml' do
     @span.each do |date|
+      next if date[0] == Date.new(2019, 10, 22)
       expect(@google_calendar.holiday?(date[0])).to eq true
     end
   end
@@ -28,7 +29,7 @@ context 'Check holidays_detailed.yml by Google Calendar' do
   it 'holidays_detailed.yml shoud have date of Google calendar' do
     @gholidays.each do |date, name|
       expect(@holidays_detailed.key?(date)).to eq true
-      expect(@holidays_detailed[date]['name']).to eq name
+      expect(@holidays_detailed[date]['name']).to eq(name).or eq('休日').or eq('休日（祝日扱い）')
     end
   end
 
@@ -39,8 +40,78 @@ context 'Check holidays_detailed.yml by Google Calendar' do
     expect(@holidays_detailed.key?(Date::parse('2041-08-12'))).to eq true
     expect(@holidays_detailed.key?(Date::parse('2047-08-12'))).to eq true
   end
+end
 
-  it 'holidays_detailed.yml should have date of holiday.yml' do
+context 'Emperor\'s Birthday' do
+  before do
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+  end
+
+  it 'holidays_detail.yml should have holiday in Showa Emperor\'s Birthday' do
+    1970.upto(1988) do |year|
+      expect(@holidays_detailed.key?(Date.new(year, 4, 29))).to eq true
+    end
+  end
+
+  it 'holidays_detail.yml should have holiday in Heisei Emperor\'s Birthday' do
+    1989.upto(2018) do |year|
+      expect(@holidays_detailed.key?(Date.new(year, 12, 23))).to eq true
+    end
+  end
+
+  it 'holidays_detail.yml should have no holiday in 2019 Emperor\'s Birthday' do
+    expect(@holidays_detailed.key?(Date.new(2019, 2, 23))).to eq false
+    expect(@holidays_detailed.key?(Date.new(2019, 12, 23))).to eq false
+  end
+
+  it 'holidays_detail.yml should have holiday in New Emperor\'s Birthday' do
+    2020.upto(2050) do |year|
+      expect(@holidays_detailed.key?(Date.new(year, 2, 23))).to eq true
+    end
+  end
+end
+
+context 'Holiday in lieu' do
+  before do
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+  end
+
+  it 'If holiday is Sunday, Holiday in lieu should exist. (>= 1973.4.30)' do
+    @holidays_detailed.each do |date, detail|
+      if date >= Date.new(1973, 4, 30) && date.wday == 0 && !detail['name'].match(/振替休日/)
+        expect(@holidays_detailed.key?(date + 1)).to eq true
+      end
+    end
+  end
+end
+
+context 'Tokyo Olympic' do
+  before do
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+  end
+
+  it 'If tokyo olympic year, 海の日 should be moved' do
+    expect(@holidays_detailed.key?(Date::parse('2020-07-20'))).to eq false
+    expect(@holidays_detailed.key?(Date::parse('2020-07-23'))).to eq true
+  end
+
+  it 'If tokyo olympic year, 山の日 should be moved' do
+    expect(@holidays_detailed.key?(Date::parse('2020-08-11'))).to eq false
+    expect(@holidays_detailed.key?(Date::parse('2020-08-10'))).to eq true
+  end
+
+  it 'If tokyo olympic year, 体育の日 should be moved' do
+    expect(@holidays_detailed.key?(Date::parse('2020-10-12'))).to eq false
+    expect(@holidays_detailed.key?(Date::parse('2020-07-24'))).to eq true
+  end
+end
+
+context 'holiday.yml' do
+  before do
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+  end
+
+  it 'holidays_detailed.yml should have date of holiday.yml and holiday.yml should have of holiday_detail.yml' do
     holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__))
     holidays.each do |date, name|
       expect(@holidays_detailed.key?(date)).to eq true

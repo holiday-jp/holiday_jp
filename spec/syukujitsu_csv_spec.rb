@@ -38,19 +38,3 @@ context 'Check holidays.yml by syukujitsu.csv' do
     end
   end
 end
-
-context 'Check holidays.yml by syukujitsu_kyujitsu.csv' do
-  before do
-    @holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__))
-    csv_url = 'https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu_kyujitsu.csv'
-    csv = open(csv_url).read
-    @cholidays = CSV.parse(csv, headers: true, encoding: 'Shift_JIS')
-  end
-
-  it 'holidays.yml shoud have date of syukujitsu_kyujitsu.csv' do
-    @cholidays.each do |row|
-      d = Date::parse(row[0])
-      expect(@holidays.key?(d)).to eq true
-    end
-  end
-end

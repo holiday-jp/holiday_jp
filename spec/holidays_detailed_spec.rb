@@ -106,6 +106,20 @@ context 'Tokyo Olympic' do
   end
 end
 
+context 'Coronation Day / 天皇の即位の日及び即位礼正殿の儀の行われる日を休日とする法律' do
+  before do
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+  end
+  it '天皇の即位の日の平成31年（2019年）5月1日及び即位礼正殿の儀が行われる日の平成31年（2019年）10月22日は、休日となります' do
+    expect(@holidays_detailed.key?(Date::parse('2019-05-01'))).to eq true
+    expect(@holidays_detailed.key?(Date::parse('2019-10-22'))).to eq true
+  end
+  it 'また、これらの休日は国民の祝日扱いとなるため、平成31年（2019年）４月30日と５月２日も休日となります' do
+    expect(@holidays_detailed.key?(Date::parse('2019-04-30'))).to eq true
+    expect(@holidays_detailed.key?(Date::parse('2019-05-02'))).to eq true
+  end
+end
+
 context 'holiday.yml' do
   before do
     @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))

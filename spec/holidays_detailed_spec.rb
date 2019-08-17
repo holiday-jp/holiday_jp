@@ -29,8 +29,10 @@ context 'Check holidays_detailed.yml by Google Calendar' do
   it 'holidays_detailed.yml shoud have date of Google calendar' do
     @gholidays.each do |date, name|
       expect(@holidays_detailed.key?(date)).to eq true
-      expect(@holidays_detailed[date]['name']).to eq(name).or eq('休日').or eq('休日（祝日扱い）') unless @holidays_detailed[date]['name'] == '体育の日（スポーツの日）'
-    end
+      if @holidays_detailed[date]['name'] != '体育の日（スポーツの日）' && @holidays_detailed[date]['name'] != 'スポーツの日'
+        expect(@holidays_detailed[date]['name']).to eq(name).or eq('休日').or eq('休日（祝日扱い）')
+      end
+     end
   end
 
   it 'holidays_detailed.yml should have holiday in lieu of `Mountain Day`' do

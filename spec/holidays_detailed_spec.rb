@@ -106,6 +106,22 @@ context 'Tokyo Olympic' do
     expect(@holidays_detailed.key?(Date::parse('2020-10-12'))).to eq false
     expect(@holidays_detailed.key?(Date::parse('2020-07-24'))).to eq true
   end
+
+  it 'If tokyo olympic 2021, 海の日 should be moved' do
+    expect(@holidays_detailed.key?(Date::parse('2021-07-19'))).to eq false
+    expect(@holidays_detailed.key?(Date::parse('2021-07-22'))).to eq true
+  end
+
+  it 'If tokyo olympic 2021, 山の日 should be moved' do
+    expect(@holidays_detailed.key?(Date::parse('2021-08-11'))).to eq false
+    expect(@holidays_detailed.key?(Date::parse('2021-08-08'))).to eq true
+    expect(@holidays_detailed.key?(Date::parse('2021-08-09'))).to eq true
+  end
+
+  it 'If tokyo olympic 2021, スポーツの日 should be moved' do
+    expect(@holidays_detailed.key?(Date::parse('2021-10-11'))).to eq false
+    expect(@holidays_detailed.key?(Date::parse('2021-07-23'))).to eq true
+  end
 end
 
 context 'Coronation Day / 天皇の即位の日及び即位礼正殿の儀の行われる日を休日とする法律' do

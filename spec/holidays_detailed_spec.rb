@@ -3,11 +3,13 @@ require 'spec_helper'
 require 'yaml'
 require 'json'
 require 'date'
+require 'uri'
+require 'open-uri'
 
 context 'holidays_detailed.yml' do
   before do
     @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
-    @v1 = YAML.load_file(File.expand_path('../../holidays_detailed.v1.x.yml', __FILE__))
+    @v1 = YAML.load(URI.open('https://raw.githubusercontent.com/holiday-jp/holiday_jp/master/holidays_detailed.yml'))
   end
 
   it 'holidays_detailed.yml should have date of holiday_detailed.v1.x.yml' do

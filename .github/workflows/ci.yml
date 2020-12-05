@@ -1,0 +1,26 @@
+---
+name: test
+
+on: push
+
+jobs:
+  job-test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          go-version: '2.7'
+
+      - name: Check out source code
+        uses: actions/checkout@v2
+
+      - name: Setup
+        run: bundle install
+
+      - name: Run test
+        run: bundle exec rake spec
+        env:
+          # No OAuth2 Client ID / IP range limited
+          GOOGLE_CALENDAR_API_KEY: AIzaSyBua5ystvigElyCGBeJQ-lvXnLAal5k_jw

@@ -12,7 +12,7 @@ Japanese holiday datasets
 | Version | 休日の表記 |
 | --- | --- |
 | v0.x | `国民の休日` |
-| v1.x | `国民の休日` |
+| v1.x | `国民の休日`, `休日` |
 | >= v1.2.2 | `休日` |
 
 ## Implemantations

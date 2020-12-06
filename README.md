@@ -1,4 +1,4 @@
-# holiday_jp [![test](https://github.com/holiday-jp/holiday_jp/workflows/test/badge.svg)](https://github.com/holiday-jp/holiday_jp/actions) [![GitHub release](https://img.shields.io/github/release/holiday-jp/holiday_jp.svg)](https://github.com/holiday-jp/holiday_jp/releases)
+# holiday_jp [![test](https://github.com/holiday-jp/holiday_jp/workflows/test/badge.svg)](https://github.com/holiday-jp/holiday_jp/actions)
 
 Japanese holiday datasets
 

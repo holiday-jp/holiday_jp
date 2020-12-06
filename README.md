@@ -9,6 +9,12 @@ Japanese holiday datasets
 | v0.x | `振替休日` |
 | v1.x | `勤労感謝の日 振替休日` |
 
+| Version | 休日の表記 |
+| --- | --- |
+| v0.x | `国民の休日` |
+| v1.x | `国民の休日` |
+| >= v1.2.2 | `休日` |
+
 ## Implemantations
 
 | Implemantation | Release version using holiday_jp v0.x | Release version using holiday_jp v1.x |

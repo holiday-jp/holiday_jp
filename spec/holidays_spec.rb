@@ -15,11 +15,11 @@ context 'holidays.yml' do
   it 'holidays.yml should have date of holiday.v1.x.yml' do
     @holidays.each do |date, detail|
       expect(@v1.key?(date)).to eq true
-      expect(@v1[date]).to eq(detail).or match(/ 振替休日\z/)
+      expect(@v1[date]).to eq(detail).or match(/ 振替休日\z/).or eq('休日')
     end
     @v1.each do |date, detail|
       expect(@holidays.key?(date)).to eq true
-      expect(@holidays[date]).to eq(detail).or eq('振替休日')
+      expect(@holidays[date]).to eq(detail).or eq('振替休日').or eq('国民の休日')
     end
     expect(@holidays.length).to eq @v1.length
   end

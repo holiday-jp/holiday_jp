@@ -17,6 +17,8 @@ context 'holidays_detailed.yml' do
       expect(@v1.key?(date)).to eq true
       if detail['name'] == '振替休日'
         expect(@v1[date]['name']).to match(/ 振替休日\z/)
+      elsif detail['name'] == '国民の休日'
+        expect(@v1[date]['name']).to eq('休日')
       else
         expect(@v1[date]).to eq(detail)
       end
@@ -25,6 +27,8 @@ context 'holidays_detailed.yml' do
       expect(@holidays_detailed.key?(date)).to eq true
       if / 振替休日\z/ =~ detail['name']
         expect(@holidays_detailed[date]['name']).to eq('振替休日')
+      elsif detail['name'] == '休日'
+        expect(@holidays_detailed[date]['name']).to eq('国民の休日')
       else
         expect(@holidays_detailed[date]).to eq(detail)
       end

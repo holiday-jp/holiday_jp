@@ -26,8 +26,8 @@ Japanese holiday datasets
 | [Swift](https://github.com/holiday-jp/holiday_jp-swift) | v0.1.x | v0.2.x |
 | [Go](https://github.com/holiday-jp/holiday_jp-go) | - | master |
 | [Elixir](https://github.com/holiday-jp/holiday_jp-elixir) | v0.2.2 | >= v0.2.3 |
-| [C#.net](https://github.com/holiday-jp/holiday_jp-csharp) | - | master |
-| [Python](https://github.com/holiday-jp/holiday_jp-python) | - | master |
+| [C#.net](https://github.com/holiday-jp/holiday_jp-csharp) | - | v1.x |
+| [Python](https://github.com/holiday-jp/holiday_jp-python) | - | latest |
 
 ## "Datasets" idea
 

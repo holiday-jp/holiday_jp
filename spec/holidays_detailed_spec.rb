@@ -6,7 +6,7 @@ require 'date'
 
 context 'Emperor\'s Birthday' do
   before do
-    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__), permitted_classes: [Date])
   end
 
   it 'holidays_detail.yml should have holiday in Showa Emperor\'s Birthday' do
@@ -35,7 +35,7 @@ end
 
 context 'Holiday in lieu' do
   before do
-    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__), permitted_classes: [Date])
   end
 
   it 'If holiday is Sunday, Holiday in lieu should exist. (>= 1973.4.30)' do
@@ -49,7 +49,7 @@ end
 
 context 'Tokyo Olympic' do
   before do
-    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__), permitted_classes: [Date])
   end
 
   it 'If tokyo olympic year, 海の日 should be moved' do
@@ -86,7 +86,7 @@ end
 
 context 'Coronation Day / 天皇の即位の日及び即位礼正殿の儀の行われる日を休日とする法律' do
   before do
-    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__), permitted_classes: [Date])
   end
   it '天皇の即位の日の平成31年（2019年）5月1日及び即位礼正殿の儀が行われる日の平成31年（2019年）10月22日は、休日となります' do
     expect(@holidays_detailed.key?(Date::parse('2019-05-01'))).to eq true
@@ -100,11 +100,11 @@ end
 
 context 'holiday.yml' do
   before do
-    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__))
+    @holidays_detailed = YAML.load_file(File.expand_path('../../holidays_detailed.yml', __FILE__), permitted_classes: [Date])
   end
 
   it 'holidays_detailed.yml should have date of holiday.yml and holiday.yml should have of holiday_detail.yml' do
-    holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__))
+    holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__), permitted_classes: [Date])
     holidays.each do |date, name|
       expect(@holidays_detailed.key?(date)).to eq true
       expect(@holidays_detailed[date]['name']).to eq name

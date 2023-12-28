@@ -8,7 +8,7 @@ require 'uri'
 
 context 'Check holidays.yml by syukujitsu.csv' do
   before do
-    @holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__))
+    @holidays = YAML.load_file(File.expand_path('../../holidays.yml', __FILE__), permitted_classes: [Date])
     csv_url = 'https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv'
     csv = URI.open(csv_url).read
     @cholidays = CSV.parse(csv, headers: true, encoding: 'Shift_JIS')

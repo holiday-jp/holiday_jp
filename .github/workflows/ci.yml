@@ -12,7 +12,7 @@ on:
 
 jobs:
   job-test:
-    name: Test
+    name: Test and check syukujitsu.csv
     runs-on: ubuntu-latest
     steps:
       - name: Check out source code

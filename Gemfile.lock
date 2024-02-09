@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    csv (3.2.8)
     diff-lcs (1.5.1)
     httpclient (2.8.3)
     rake (13.1.0)
@@ -19,10 +20,11 @@ GEM
     rspec-support (3.13.0)
 
 PLATFORMS
-  ruby
+  arm64-darwin-22
 
 DEPENDENCIES
   bundler
+  csv
   httpclient
   rake
   rspec

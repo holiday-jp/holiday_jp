@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 gem 'bundler'
+gem 'csv'
 gem 'rake'
 gem 'rspec'
 gem 'httpclient'
